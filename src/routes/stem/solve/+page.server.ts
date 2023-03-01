@@ -2,6 +2,7 @@ import type { PageServerLoad } from './$types';
 import { WOLFRAM_APP_ID } from '$env/static/private'
 
 export const load = (async ({ url, fetch }) => {
+    console.log(url.searchParams.get("input"));
     if (!url.searchParams.get("input")) return { redirect: "/stem/" };
     if (!WOLFRAM_APP_ID) return { error: "No Wolfram App ID (This is not an error you can fix)" };
 
